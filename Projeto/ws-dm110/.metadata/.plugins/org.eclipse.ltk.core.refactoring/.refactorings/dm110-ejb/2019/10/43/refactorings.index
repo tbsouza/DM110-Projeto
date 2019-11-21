@@ -1,0 +1,4 @@
+1572110514938	Infer generic type arguments
+1572110962015	Rename package 'br.inatel.dm110.hello.entities'
+1572112654806	Extract method 'stateMapper'
+1572114850555	Extract method 'stateToMapper'

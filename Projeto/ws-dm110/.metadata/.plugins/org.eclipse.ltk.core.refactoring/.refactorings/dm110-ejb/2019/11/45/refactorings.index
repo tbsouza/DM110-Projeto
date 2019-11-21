@@ -1,0 +1,4 @@
+1573324293622	Rename type 'ibgeMDB'
+1573324671538	Rename local variable 'textMessage'
+1573325205203	Rename type 'IbgeMessage'
+1573325280005	Rename method 'sendTextMessage'

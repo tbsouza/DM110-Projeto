@@ -1,0 +1,55 @@
+package br.inatel.dm110.servlet;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/calc")
+public class calculaotor extends HttpServlet{
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	
+		String op1 = req.getParameter("op1");
+		String op2 = req.getParameter("op2");
+		String op = req.getParameter("op");
+		
+		float opr1 = Float.parseFloat(op1);
+		float opr2 = Float.parseFloat(op2);
+		float result = 0;
+	
+		resp.setContentType("text/html");
+		PrintWriter out = resp.getWriter();
+		
+		if( "soma".equals(op) )
+		{
+			result = opr1 + opr2;
+			out.println("<h2>SOMA = " + result + "</h2>"); 
+		}
+		else if( "mult".equals(op) )
+		{
+			result = opr1 * opr2;
+			out.println("<h2>MULTIPLICAÇÂO = " + result + "</h2>");
+		}
+		else if("sub".equals(op))
+		{
+			result = opr1 - opr2;
+			out.println("<h2>SUBTRAÇÂO = " + result + "</h2>");
+		}
+		else if("div".equals(op))
+		{
+			if(op2 == 0)
+			{
+				out.println("<h2>Impossível dividir por zero.</h2>\");
+			}
+		}
+		
+		
+	}
+
+}

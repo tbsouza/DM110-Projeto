@@ -1,0 +1,23 @@
+package br.inatel.dm110.api;
+
+import javax.ws.rs.Consumes;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.core.MediaType;
+
+@Path("Order")
+public interface OrderService {
+
+	//inclusão de um registro
+	@POST
+	@Path("")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public void saveOrder(OrderTO order);
+	
+	//busca de um registro através de seu identificador (código ou CPF)
+	
+	//listagem de registros
+	
+	//atualização de um registro
+	
+}

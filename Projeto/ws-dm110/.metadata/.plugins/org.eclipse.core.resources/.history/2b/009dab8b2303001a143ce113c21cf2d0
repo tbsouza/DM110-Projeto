@@ -1,0 +1,45 @@
+package br.inatel.dm110.hello.mdb;
+
+import javax.ejb.ActivationConfigProperty;
+import javax.ejb.MessageDriven;
+import javax.jms.Message;
+import javax.jms.MessageListener;
+import javax.jms.ObjectMessage;
+
+import br.inatel.dm110.api.StateTO;
+
+@MessageDriven(activationConfig = {
+		@ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue"),
+		@ActivationConfigProperty(propertyName = "destination", propertyValue = "java:/jms/queue/ibgequeue"),
+		@ActivationConfigProperty(propertyName = "maxSession", propertyValue = "5") })
+public class IbgeMDB implements MessageListener {
+
+	@Override
+	public void onMessage(Message message) {
+
+		if (message instanceof ObjectMessage) {
+
+			ObjectMessage objMessage = (ObjectMessage) message;
+
+			System.out.println("Iniciando processamento da mensagem");
+
+			try {
+
+				StateTO stateString = objMessage.getBody(StateTO.class);
+
+				Thread.sleep(5000);
+
+				System.out.println("Mensagem recebida: " + stateString);
+
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		} else {
+			System.err.println("ERRO");
+		}
+
+	}
+
+}

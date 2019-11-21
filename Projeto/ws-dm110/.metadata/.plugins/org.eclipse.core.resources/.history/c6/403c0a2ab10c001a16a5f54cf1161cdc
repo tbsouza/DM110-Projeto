@@ -1,0 +1,7 @@
+package br.inatel.dm110.api;
+
+import java.io.Serializable;
+
+public class OrderTO implements Serializable {
+
+}

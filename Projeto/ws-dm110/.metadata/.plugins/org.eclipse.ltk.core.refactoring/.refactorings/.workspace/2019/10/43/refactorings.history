@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;dm110-ejb-client&apos;" deleteContents="false" description="Delete resource &apos;dm110-ejb-client&apos;" element1="/dm110-ejb-client" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1572092187302"/>&#x0A;<refactoring comment="Delete 5 resources" deleteContents="false" description="Delete 5 resources" element1="/dm110-api" element2="/dm110-ear" element3="/dm110-ejb" element4="/dm110-impl" element5="/dm110-web" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="5" stamp="1572092191143"/>
+</session>

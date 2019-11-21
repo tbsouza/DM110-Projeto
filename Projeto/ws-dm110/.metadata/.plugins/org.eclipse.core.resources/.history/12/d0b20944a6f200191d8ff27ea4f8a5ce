@@ -1,0 +1,8 @@
+package br.inatel.dm110.servlet;
+
+import javax.servlet.annotation.WebServlet;
+
+@WebServlet("/calc")
+public class calculaotor {
+
+}

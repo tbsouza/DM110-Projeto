@@ -1,0 +1,38 @@
+package br.inatel.dm110.hello.mdb;
+
+import javax.jms.Message;
+import javax.jms.MessageListener;
+import javax.jms.ObjectMessage;
+
+import br.inatel.dm110.api.StateTO;
+
+public class IbgeMDB implements MessageListener {
+
+	@Override
+	public void onMessage(Message message) {
+
+		if (message instanceof ObjectMessage) {
+
+			ObjectMessage objMessage = (ObjectMessage) message;
+
+			System.out.println("Iniciando processamento da mensagem");
+
+			try {
+
+				String stateString = objMessage.toString();
+
+				Thread.sleep(5000);
+
+				System.out.println(
+						"Mensagem recebida: " + state.getNome() + ", " + state.getSigla() + ", " + state.getIbge());
+
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}
+
+	}
+
+}

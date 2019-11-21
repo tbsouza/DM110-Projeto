@@ -1,0 +1,8 @@
+package br.inatel.dm110.api;
+
+import javax.ws.rs.Path;
+
+@Path("Order")
+public interface OrderService {
+
+}

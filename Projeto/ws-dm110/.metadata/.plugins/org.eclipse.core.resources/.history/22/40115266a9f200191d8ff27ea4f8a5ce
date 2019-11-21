@@ -1,0 +1,19 @@
+package br.inatel.dm110.impl;
+
+import br.inatel.dm110.api.CalculatorService;
+
+public class CalculetorServiceImpl implements CalculatorService{
+
+	@Override
+	public String soma(String op1, String op2, String op) {
+		
+		float opr1 = Float.parseFloat(op1);
+		float opr2 = Float.parseFloat(op2);
+		float result = 0;
+		
+		result = opr1 + opr2;
+		
+		return "<h1>SOMA = " + result + "</h1>";
+	}
+
+}

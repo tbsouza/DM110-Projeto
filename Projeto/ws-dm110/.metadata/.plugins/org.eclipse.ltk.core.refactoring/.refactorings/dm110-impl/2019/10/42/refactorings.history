@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;br.inatel.dm110.impl.CalculetorServiceImpl&apos; to &apos;CalculatorServiceImpl&apos;&#x0D;&#x0A;- Original project: &apos;dm110-impl&apos;&#x0D;&#x0A;- Original element: &apos;br.inatel.dm110.impl.CalculetorServiceImpl&apos;&#x0D;&#x0A;- Renamed element: &apos;br.inatel.dm110.impl.CalculatorServiceImpl&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;CalculetorServiceImpl&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/main\/java&lt;br.inatel.dm110.impl{CalculetorServiceImpl.java[CalculetorServiceImpl" matchStrategy="1" name="CalculatorServiceImpl" qualified="false" references="true" similarDeclarations="false" stamp="1571514648603" textual="false" version="1.0"/>
+</session>
