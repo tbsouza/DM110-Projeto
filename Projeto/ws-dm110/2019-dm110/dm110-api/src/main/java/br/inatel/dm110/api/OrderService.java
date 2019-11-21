@@ -33,7 +33,7 @@ public interface OrderService {
 	public OrderTO getOrderById();
 
 	/**
-	 * List all Orders saved.
+	 * List all saved Orders.
 	 *
 	 * @return The list containig all Orders.
 	 */
@@ -42,7 +42,12 @@ public interface OrderService {
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<OrderTO> getAllOrders();
 
-	// atualização de um registro
+	/**
+	 * Update an Order by Id.
+	 * 
+	 * @param order
+	 *            The order to be updated
+	 */
 	@PUT
 	@Path("/order")
 	@Consumes(MediaType.APPLICATION_JSON)
