@@ -68,4 +68,24 @@ public class OrderBean implements OrderLocal, OrderRemote {
 		return order;
 	}
 
+	/**
+	 * Map Order to OrderTO
+	 *
+	 * @param order
+	 * @return The OrderTO mapped
+	 */
+	private OrderTO mapToOrderTO(Order order) {
+
+		OrderTO orderTO = new OrderTO();
+
+		orderTO.setAmount(order.getAmount());
+		orderTO.setCpf(order.getCpf());
+		orderTO.setOrderCode(order.getOrderCode());
+		orderTO.setProducCode(order.getProducCode());
+		orderTO.setSaleDate(order.getSaleDate());
+		orderTO.setValue(order.getValue());
+
+		return orderTO;
+	}
+
 }
