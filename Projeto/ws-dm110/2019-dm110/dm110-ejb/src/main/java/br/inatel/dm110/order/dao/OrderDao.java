@@ -16,24 +16,28 @@ public class OrderDao {
 	private EntityManager em;
 
 	public List<Order> listAll() {
+		System.out.println("[OrderDAO] List all Orders");
+
 		Query query = em.createQuery("from Order o", Order.class);
 		return query.getResultList();
 	}
 
 	public void insert(Order order) {
+		System.out.println("[OrderDAO] Save Order " + order.getOrderCode());
+
 		em.persist(order);
 	}
 
 	public Order getOrder(int orderId) {
-		// TODO Do the correct query
-		String queryStr = "from Order o where o.orderCode = " + orderId;
+		System.out.println("[OrderDAO] Get Order by Id " + orderId);
 
-		Query query = em.createQuery(queryStr, Order.class);
-		return (Order) query.getSingleResult();
+		Order order = em.find(Order.class, orderId);
+		return order;
 	}
 
 	public void updateOrder(Order order) {
-		// TODO
-	}
+		System.out.println("[OrderDAO] Update Order " + order.getOrderCode());
 
+		em.merge(order);
+	}
 }
