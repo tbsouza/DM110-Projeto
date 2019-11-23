@@ -24,9 +24,11 @@ public class OrderDao {
 		em.persist(order);
 	}
 
-	public Order getOrder(Order order) {
+	public Order getOrder(int orderId) {
 		// TODO Do the correct query
-		Query query = em.createQuery("from Order o where ", Order.class);
+		String queryStr = "from Order o where o.orderCode = " + orderId;
+
+		Query query = em.createQuery(queryStr, Order.class);
 		return (Order) query.getSingleResult();
 	}
 

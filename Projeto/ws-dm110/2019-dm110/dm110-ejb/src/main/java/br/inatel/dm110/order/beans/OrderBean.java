@@ -1,12 +1,15 @@
 package br.inatel.dm110.order.beans;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.ejb.EJB;
 import javax.ejb.Local;
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
 
 import br.inatel.dm110.api.OrderTO;
+import br.inatel.dm110.order.dao.OrderDao;
 import br.inatel.dm110.order.entities.Order;
 import br.inatel.dm110.order.interfaces.OrderLocal;
 import br.inatel.dm110.order.interfaces.OrderRemote;
@@ -16,36 +19,56 @@ import br.inatel.dm110.order.interfaces.OrderRemote;
 @Local(OrderLocal.class)
 public class OrderBean implements OrderLocal, OrderRemote {
 
+	@EJB
+	private OrderDao dao;
+
 	@Override
 	public void saveOrder(OrderTO orderTO) {
+		System.out.println("[OrderBean] Save new Order: " + orderTO.getOrderCode());
 
 		Order order = mapToOrder(orderTO);
-
-		System.out.println("Saving new Order: " + order.getOrderCode());
-
-		// TODO Auto-generated method stub
+		dao.insert(order);
 	}
 
 	@Override
 	public OrderTO getOrderById(int orderId) {
-		// TODO Auto-generated method stub
-		return null;
+		System.out.println("[OrderBean] Get Order by Id " + orderId);
+
+		// Get the Order from database
+		Order order = dao.getOrder(orderId);
+
+		// Transalte the order to OrderTO
+		OrderTO orderTO = mapToOrderTO(order);
+
+		return orderTO;
 	}
 
 	@Override
 	public List<OrderTO> getAllOrders() {
-		// TODO Auto-generated method stub
-		return null;
+		System.out.println("[OrderBean] Get all saved orders");
+
+		// Get all ORders from database
+		List<Order> orders = dao.listAll();
+		List<OrderTO> orderTOList = new ArrayList<OrderTO>();
+
+		// Translate the list of Order to list of OrderTO
+		for (Order order : orders) {
+			OrderTO orderTO = mapToOrderTO(order);
+			orderTOList.add(orderTO);
+		}
+
+		return orderTOList;
 	}
 
 	@Override
 	public void updateOrderById(OrderTO orderTO) {
+		System.out.println("[OrderBean] Update Order: " + orderTO.getOrderCode());
 
+		// Translate OrderTO to Order
 		Order order = mapToOrder(orderTO);
 
-		System.out.println("Updating Order: " + order.getOrderCode());
-
-		// TODO Auto-generated method stub
+		// Update the Order
+		dao.updateOrder(order);
 	}
 
 	/**
