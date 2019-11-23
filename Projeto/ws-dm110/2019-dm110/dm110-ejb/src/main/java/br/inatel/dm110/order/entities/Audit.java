@@ -1,5 +1,6 @@
 package br.inatel.dm110.order.entities;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -8,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "AUDIT") // Table name in database
-public class Audit {
+public class Audit implements Serializable {
 
 	@Id
 	private int id; // auto increment
