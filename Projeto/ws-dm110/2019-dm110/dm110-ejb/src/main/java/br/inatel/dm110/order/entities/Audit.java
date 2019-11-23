@@ -9,6 +9,9 @@ public class Audit {
 	private String operation; // Create, update, list
 	private Date dateTime;
 
+	public Audit() {
+	}
+
 	public int getId() {
 		return id;
 	}

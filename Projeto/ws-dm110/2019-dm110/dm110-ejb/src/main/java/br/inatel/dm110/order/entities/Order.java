@@ -21,6 +21,9 @@ public class Order implements Serializable {
 	private Date saleDate;
 	private float value;
 
+	public Order() {
+	}
+
 	public int getOrderCode() {
 		return orderCode;
 	}
