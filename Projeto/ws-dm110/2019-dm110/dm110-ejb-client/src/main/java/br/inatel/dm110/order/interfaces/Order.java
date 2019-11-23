@@ -17,7 +17,7 @@ public interface Order {
 	/**
 	 * Search for an order by Id.
 	 */
-	public OrderTO getOrderById();
+	public OrderTO getOrderById(int orderId);
 
 	/**
 	 * List all saved Orders.

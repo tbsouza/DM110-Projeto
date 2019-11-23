@@ -27,7 +27,7 @@ public class OrderBean implements OrderLocal, OrderRemote {
 	}
 
 	@Override
-	public OrderTO getOrderById() {
+	public OrderTO getOrderById(int orderId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
