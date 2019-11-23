@@ -5,6 +5,8 @@ import java.util.Date;
 
 public class OrderTO implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+
 	private int orderCode;
 	private int producCode;
 	private String cpf;
