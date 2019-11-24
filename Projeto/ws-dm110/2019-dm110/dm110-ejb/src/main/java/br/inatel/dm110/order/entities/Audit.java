@@ -13,6 +13,8 @@ import javax.persistence.Table;
 @Table(name = "AUDIT") // Table name in database
 public class Audit implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id; // auto increment
