@@ -1,6 +1,7 @@
 package br.inatel.dm110.order.beans;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -9,7 +10,9 @@ import javax.ejb.Remote;
 import javax.ejb.Stateless;
 
 import br.inatel.dm110.api.OrderTO;
+import br.inatel.dm110.audit.AuditMessageSender;
 import br.inatel.dm110.order.dao.OrderDao;
+import br.inatel.dm110.order.entities.Audit;
 import br.inatel.dm110.order.entities.Order;
 import br.inatel.dm110.order.interfaces.OrderLocal;
 import br.inatel.dm110.order.interfaces.OrderRemote;
@@ -21,13 +24,21 @@ public class OrderBean implements OrderLocal, OrderRemote {
 
 	@EJB
 	private OrderDao dao;
+	
+	@EJB
+	private AuditMessageSender auditSender;
 
 	@Override
 	public void saveOrder(OrderTO orderTO) {
 		System.out.println("[OrderBean] Save new Order: " + orderTO.getOrderCode());
 
+		// Map and insert into database
 		Order order = mapToOrder(orderTO);
 		dao.insert(order);
+		
+		// Create audit and send the audit message
+		Audit audit = createAudit(order.getOrderCode(), "CREATE", new Date(System.currentTimeMillis()));
+		auditSender.sendAuditMessage(audit);
 	}
 
 	@Override
@@ -40,6 +51,10 @@ public class OrderBean implements OrderLocal, OrderRemote {
 		// Transalte the order to OrderTO
 		OrderTO orderTO = mapToOrderTO(order);
 
+		// Send the audit message
+		Audit audit = createAudit(order.getOrderCode(), "GET", new Date(System.currentTimeMillis()));
+		auditSender.sendAuditMessage(audit);
+		
 		return orderTO;
 	}
 
@@ -56,6 +71,8 @@ public class OrderBean implements OrderLocal, OrderRemote {
 			OrderTO orderTO = mapToOrderTO(order);
 			orderTOList.add(orderTO);
 		}
+		
+		// TODO Send the audit message
 
 		return orderTOList;
 	}
@@ -69,6 +86,10 @@ public class OrderBean implements OrderLocal, OrderRemote {
 
 		// Update the Order
 		dao.updateOrder(order);
+		
+		// Send the audit message
+		Audit audit = createAudit(order.getOrderCode(), "UPDATE", new Date(System.currentTimeMillis()));
+		auditSender.sendAuditMessage(audit);
 	}
 
 	/**
@@ -109,6 +130,16 @@ public class OrderBean implements OrderLocal, OrderRemote {
 		orderTO.setValue(order.getValue());
 
 		return orderTO;
+	}
+	
+	private Audit createAudit(int orderCode, String operation, Date date) {
+
+		Audit audit = new Audit();
+		audit.setRegisterCode(orderCode);
+		audit.setOperation(operation);
+		audit.setDateTime(date);
+
+		return audit;
 	}
 
 }
