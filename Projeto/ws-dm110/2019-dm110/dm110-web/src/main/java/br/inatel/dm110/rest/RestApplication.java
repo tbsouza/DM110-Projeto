@@ -9,6 +9,7 @@ import javax.ws.rs.core.Application;
 import br.inatel.dm110.impl.CalculatorServiceImpl;
 import br.inatel.dm110.impl.HelloServiceImpl;
 import br.inatel.dm110.impl.IbgeServiceImpl;
+import br.inatel.dm110.impl.OrderServiceImpl;
 
 @ApplicationPath("/api")
 public class RestApplication extends Application {
@@ -16,10 +17,8 @@ public class RestApplication extends Application {
 	@Override
 	public Set<Class<?>> getClasses() {
 		Set<Class<?>> classes = new HashSet<>();
-		
-		classes.add(HelloServiceImpl.class);
-		classes.add(CalculatorServiceImpl.class);
-		classes.add(IbgeServiceImpl.class);
+
+		classes.add(OrderServiceImpl.class);
 		
 		return classes;
 	}
