@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "AUDIT") // Table name in database
@@ -20,6 +22,7 @@ public class Audit implements Serializable {
 	private int id; // auto increment
 	private int registerCode; // Order code
 	private String operation; // Create, update, list
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date dateTime;
 
 	public Audit() {
