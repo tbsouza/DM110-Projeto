@@ -38,3 +38,24 @@ Response example (Success):
     "value": 3000
 }
 ```
+
+#### Get Order by ID
+Get a specific order by its id.
+
+```bash
+GET
+http://{{yourlocaldomain}}/api/ralethi/order/{{orderId}}
+Content-Type: application/json
+
+Response example (Success):
+
+{
+    "id": 1,
+	"orderCode": 0001,
+	"productCode": 0001,
+	"cpf": "000.000.000-00",
+	"amount": 3,
+	"saleDate": "2019-09-07 11:59 PM",
+	"value": 3000
+}
+```
