@@ -18,23 +18,23 @@ Content-Type: application/json
 Body:
 
 {
-	"orderCode": 0001,
-	"productCode": 0001,
-	"cpf": "000.000.000-00",
-	"amount": 3,
-	"saleDate": "2019-09-07 11:59 PM",
-	"value": 3000
+    "orderCode": 0001,
+    "productCode": 0001,
+    "cpf": "000.000.000-00",
+    "amount": 3,
+    "saleDate": "2019-09-07 11:59 PM",
+    "value": 3000
 }
 
 Response example (Success):
 
 {
     "id": 1,
-	"orderCode": 0001,
-	"productCode": 0001,
-	"cpf": "000.000.000-00",
-	"amount": 3,
-	"saleDate": "2019-09-07 11:59 PM",
-	"value": 3000
+    "orderCode": 0001,
+    "productCode": 0001,
+    "cpf": "000.000.000-00",
+    "amount": 3,
+    "saleDate": "2019-09-07 11:59 PM",
+    "value": 3000
 }
 ```
