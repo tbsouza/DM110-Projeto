@@ -1,0 +1,124 @@
+{
+	"info": {
+		"_postman_id": "6a01f281-2ac2-4636-b75b-5c277ba6a5bb",
+		"name": "DM110",
+		"description": "Exemplos de requests do projeto final de DM110.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add new Order",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"orderCode\": 0001,\r\n\t\"productCode\": 0001,\r\n\t\"cpf\": \"000.000.000-00\",\r\n\t\"amount\": 3,\r\n\t\"saleDate\": \"2019-09-07 11:59 PM\",\r\n\t\"value\": 3000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{yourlocaldomain}}/api/ralethi/order",
+					"protocol": "http",
+					"host": [
+						"{{yourlocaldomain}}"
+					],
+					"path": [
+						"api",
+						"ralethi",
+						"order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Order by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{yourlocaldomain}}/api/ralethi/order/{{orderId}}",
+					"protocol": "http",
+					"host": [
+						"{{yourlocaldomain}}"
+					],
+					"path": [
+						"api",
+						"ralethi",
+						"order",
+						"{{orderId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Order",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{yourlocaldomain}}/api/ralethi/orders",
+					"protocol": "http",
+					"host": [
+						"{{yourlocaldomain}}"
+					],
+					"path": [
+						"api",
+						"ralethi",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Order",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"orderCode\": 0001,\r\n\t\"productCode\": 0001,\r\n\t\"cpf\": \"000.000.000-00\",\r\n\t\"amount\": 3,\r\n\t\"saleDate\": \"2019-09-07 11:59 PM\",\r\n\t\"value\": 2000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{yourlocaldomain}}/api/ralethi/order",
+					"protocol": "http",
+					"host": [
+						"{{yourlocaldomain}}"
+					],
+					"path": [
+						"api",
+						"ralethi",
+						"order"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
