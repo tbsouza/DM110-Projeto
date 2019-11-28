@@ -59,3 +59,33 @@ Response example (Success):
 	"value": 3000
 }
 ```
+
+#### List Orders
+
+```bash
+GET
+http://{{yourlocaldomain}}/api/ralethi/orders
+Content-Type: application/json
+
+Response example (Success):
+[
+    {
+        "id": 1,
+        "orderCode": 0001,
+        "productCode": 0001,
+        "cpf": "000.000.000-00",
+        "amount": 3,
+        "saleDate": "2019-09-07 11:59 PM",
+        "value": 3000
+    },
+    {
+        "id": 2,
+        "orderCode": 0002,
+        "productCode": 0002,
+        "cpf": "000.000.000-00",
+        "amount": 3,
+        "saleDate": "2019-09-07 11:59 PM",
+        "value": 2000
+    }
+]
+```
