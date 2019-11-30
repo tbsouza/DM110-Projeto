@@ -15,7 +15,7 @@ public class Order implements Serializable {
 
 	@Id
 	private int orderCode;
-	private int producCode;
+	private int productCode;
 	private String cpf;
 	private int amount;
 	private Date saleDate;
@@ -32,12 +32,12 @@ public class Order implements Serializable {
 		this.orderCode = orderCode;
 	}
 
-	public int getProducCode() {
-		return producCode;
+	public int getProductCode() {
+		return productCode;
 	}
 
-	public void setProducCode(int producCode) {
-		this.producCode = producCode;
+	public void setProductCode(int producCode) {
+		this.productCode = producCode;
 	}
 
 	public String getCpf() {

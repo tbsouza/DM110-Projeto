@@ -105,7 +105,7 @@ public class OrderBean implements OrderLocal, OrderRemote {
 		order.setAmount(orderTO.getAmount());
 		order.setCpf(orderTO.getCpf());
 		order.setOrderCode(orderTO.getOrderCode());
-		order.setProducCode(orderTO.getProducCode());
+		order.setProductCode(orderTO.getProductCode());
 		order.setSaleDate(orderTO.getSaleDate());
 		order.setValue(orderTO.getValue());
 
@@ -125,7 +125,7 @@ public class OrderBean implements OrderLocal, OrderRemote {
 		orderTO.setAmount(order.getAmount());
 		orderTO.setCpf(order.getCpf());
 		orderTO.setOrderCode(order.getOrderCode());
-		orderTO.setProducCode(order.getProducCode());
+		orderTO.setProductCode(order.getProductCode());
 		orderTO.setSaleDate(order.getSaleDate());
 		orderTO.setValue(order.getValue());
 
