@@ -1,7 +1,7 @@
 # DM110
 DM110 - Desenvolvimento JavaEE
 
-If you prefer the collection, take a look at [postman](TODO).
+To get more information about setup, take a look at [wiki](https://github.com/tbsouza/DM110-Projeto/wiki).
 Don't forget to change domain as your local server is configured.
 
 ## Requests
