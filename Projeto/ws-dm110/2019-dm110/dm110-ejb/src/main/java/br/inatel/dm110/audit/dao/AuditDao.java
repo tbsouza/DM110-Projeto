@@ -9,7 +9,6 @@ import br.inatel.dm110.order.entities.Audit;
 @Stateless
 public class AuditDao {
 
-	// TODO Check if unitName is correct for Audit
 	@PersistenceContext(unitName = "order_pu")
 	private EntityManager em;
 

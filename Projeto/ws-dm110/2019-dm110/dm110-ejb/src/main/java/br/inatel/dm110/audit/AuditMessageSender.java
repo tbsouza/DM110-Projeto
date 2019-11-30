@@ -18,7 +18,6 @@ public class AuditMessageSender {
 	@Resource(lookup = "java:/ConnectionFactory")
 	private ConnectionFactory connectionFactory;
 
-	// TODO Create Queue
 	@Resource(lookup = "java:/jms/queue/auditqueue")
 	private Queue queue;
 
