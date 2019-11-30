@@ -72,7 +72,9 @@ public class OrderBean implements OrderLocal, OrderRemote {
 			orderTOList.add(orderTO);
 		}
 		
-		// TODO Send the audit message
+		// Send the audit message
+		Audit audit = createAudit(0, "GET", new Date(System.currentTimeMillis()));
+		auditSender.sendAuditMessage(audit);
 
 		return orderTOList;
 	}
