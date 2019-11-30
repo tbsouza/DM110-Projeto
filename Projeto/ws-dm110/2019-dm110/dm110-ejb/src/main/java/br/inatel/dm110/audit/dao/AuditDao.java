@@ -10,7 +10,7 @@ import br.inatel.dm110.order.entities.Audit;
 public class AuditDao {
 
 	// TODO Check if unitName is correct for Audit
-	@PersistenceContext(unitName = "audit_pu")
+	@PersistenceContext(unitName = "order_pu")
 	private EntityManager em;
 
 	public void insert(Audit audit) {
